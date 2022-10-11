@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   math.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: echrysta <echrysta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/15 02:31:39 by leroy             #+#    #+#             */
-/*   Updated: 2022/10/11 16:23:05 by echrysta         ###   ########.fr       */
+/*   Created: 2022/10/08 14:47:04 by echrysta          #+#    #+#             */
+/*   Updated: 2022/10/08 23:26:18 by echrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	parser(t_all *vars, char *path)
+float	grad_to_rad(int dir)
 {
-	int	fd;
+	return ((float)(dir * M_PI) / 180);
+}
 
-	if (ft_strlen(path) < 5
-		|| ft_strncmp(path + (ft_strlen(path) - 4), ".cub", 4) != 0)
-		ft_exit(vars, "Not \".cub\" extension!");
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		ft_exit(vars, NULL);
-	get_elements(vars, fd);
-	get_map(vars, fd);
+int	rad_to_grad(float rad)
+{
+	return ((rad * 180) / M_PI);
+}
+
+int	trgb_to_int(int t, int r, int g, int b)
+{
+	return (t << 24 | r << 16 | g << 8 | b);
 }

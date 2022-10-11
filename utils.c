@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: leroy <leroy@student.42.fr>                +#+  +:+       +#+        */
+/*   By: echrysta <echrysta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:42:56 by leroy             #+#    #+#             */
-/*   Updated: 2022/09/17 07:21:38 by leroy            ###   ########.fr       */
+/*   Updated: 2022/10/11 19:40:58 by echrysta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_free_mass(char **mass)
 	int	i;
 
 	if (!mass)
-		return;
+		return ;
 	i = 0;
 	while (mass[i])
 	{
@@ -27,38 +27,51 @@ void	ft_free_mass(char **mass)
 	free(mass);
 }
 
-void	ft_exit(t_all *vars, char *message)
+char	*rm_last_n(char *line)
 {
-	(void)vars;
+	int		len;
+	char	*ans;
+	int		i;
 
-	if (vars->no.path)
-		free(vars->no.path);
-	if (vars->no.img_ptr)
-		mlx_destroy_image(vars->mlx_ptr, vars->no.img_ptr);
-	if (vars->so.path)
-		free(vars->so.path);
-	if (vars->so.img_ptr)
-		mlx_destroy_image(vars->mlx_ptr, vars->so.img_ptr);
-	if (vars->we.path)
-		free(vars->we.path);
-	if (vars->we.img_ptr)
-		mlx_destroy_image(vars->mlx_ptr, vars->we.img_ptr);
-	if (vars->ea.path)
-		free(vars->ea.path);
-	if (vars->ea.img_ptr)
-		mlx_destroy_image(vars->mlx_ptr, vars->ea.img_ptr);
-	if (vars->win_ptr)
-		mlx_destroy_window(vars->mlx_ptr, vars->win_ptr);
-	if (vars->mlx_ptr)
-		mlx_destroy_display(vars->mlx_ptr);
-	if (vars->map)
-		ft_free_mass(vars->map);
-	if (message)
+	len = ft_strlen(line);
+	if (line[len - 1] == '\n')
+		len--;
+	ans = (char *)malloc(sizeof(char) * (len + 1));
+	i = 0;
+	while (i < len)
 	{
-		printf("Error\n");
-		printf("%s\n", message);
+		ans[i] = line[i];
+		i++;
 	}
-	if (errno != 0 && errno != 11)
-		perror(NULL);
-	exit(errno);
+	ans[i] = '\0';
+	free(line);
+	return (ans);
+}
+
+int	masslen(char **mass)
+{
+	int	i;
+
+	i = 0;
+	while (mass[i])
+		i++;
+	return (i);
+}
+
+void	my_pixel_put(t_img img, int x, int y, unsigned int color)
+{
+	char	*dst;
+
+	dst = img.addr + y * img.size_line + x * (img.bits_per_pixel / 8);
+	*(unsigned int *)dst = color;
+}
+
+int	get_color_from_img(t_img img, int x, int y)
+{
+	char	*dst;
+	int		color;
+
+	dst = img.addr + y * img.size_line + x * (img.bits_per_pixel / 8);
+	color = *(unsigned int *)dst;
+	return (color);
 }
