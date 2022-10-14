@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: echrysta <echrysta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: leroy <leroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 18:57:02 by leroy             #+#    #+#             */
-/*   Updated: 2022/10/11 18:35:24 by echrysta         ###   ########.fr       */
+/*   Updated: 2022/10/12 04:23:25 by leroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ static void	key_hook_helper(int keycode, float radian, t_all *vars)
 	}
 	if (keycode == 119 || keycode == 100 || keycode == 115
 		|| keycode == 97 || keycode == 65363 || keycode == 65361)
-		raycasting(vars);
+		if (!near_wall(vars, x, y))
+			raycasting(vars);
 }
 
 static int	key_hook(int keycode, t_all *vars)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: echrysta <echrysta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: leroy <leroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 19:17:53 by leroy             #+#    #+#             */
-/*   Updated: 2022/10/11 22:35:35 by echrysta         ###   ########.fr       */
+/*   Updated: 2022/10/13 01:08:53 by leroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 # define WIDTH 900
 # define HEIGHT 640
-# define ROTATION 4
+# define ROTATION 3
 # define STEP 0.1	
 # define FOV 60	
 
@@ -103,7 +103,6 @@ void	get_map(t_all *vars, int fd);
 
 /* get_map_2.c */
 void	check_map(t_all *vars);
-int		is_in(char c, char *str);
 
 /* get_map_3.c */
 void	rm_spaces(char **map, float *x);

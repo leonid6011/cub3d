@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: echrysta <echrysta@student.42.fr>          +#+  +:+       +#+         #
+#    By: leroy <leroy@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/13 20:59:29 by leroy             #+#    #+#              #
-#    Updated: 2022/10/11 19:38:59 by echrysta         ###   ########.fr        #
+#    Updated: 2022/10/13 02:24:12 by leroy            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	cub3D
 HEADER	=	cub3d.h
 
-CC		=	clang
+CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 MFLAGS	=	-lmlx -lXext -lX11 -lm
 

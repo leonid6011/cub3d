@@ -1,0 +1,21 @@
+NO textures/64_north.xpm
+SO ./textures/64_south.xpm
+F 20,50,0
+
+WE textures/64_west.xpm
+EA textures/64_east.xpm
+
+
+C 25,155,0
+
+
+
+
+
+    111111111111
+    1100000011011
+    10010N0000001
+    1000000000011
+    110000010101       1
+    101111010001
+    111111111111

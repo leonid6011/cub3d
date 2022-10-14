@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: echrysta <echrysta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: leroy <leroy@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 22:54:59 by echrysta          #+#    #+#             */
-/*   Updated: 2022/10/11 13:35:36 by echrysta         ###   ########.fr       */
+/*   Updated: 2022/10/12 04:07:44 by leroy            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_exit_helper(t_all *vars)
+static void	ft_exit_helper(t_all *vars)
 {	
 	if (vars->no.img_ptr)
 		mlx_destroy_image(vars->mlx_ptr, vars->no.img_ptr);
